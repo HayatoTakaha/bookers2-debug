@@ -49,20 +49,20 @@ before_action :is_matching_login_user, only: [:edit, :update, :destroy]
   def destroy
     @book = Book.find(params[:id])
     @book.destroy
-    flash[:notice] = "Book was successfully destroyed."
+    flash[:notice] = "successfully delete book!"
     redirect_to books_path
   end
 
   private
 
-  def is_matching_login_user
-    book = Book.find(params[:id])
-    unless book.user_id == current_user.id
-    redirect_to books_path
-    end
+  def ensure_correct_user
+    @book = Book.find(params[:id])
+      unless @book.user == current_user
+       redirect_to books_path
+      end
   end
 
   def book_params
     params.require(:book).permit(:title, :body)
   end
-end
+ end
