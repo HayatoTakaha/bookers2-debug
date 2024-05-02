@@ -12,6 +12,8 @@ before_action :is_matching_login_user, only: [:edit, :update, :destroy]
   def index
     @books = Book.all
     @book = Book.new
+    @users = User.all
+    @user = current_user
   end
 
   def create
@@ -44,9 +46,9 @@ before_action :is_matching_login_user, only: [:edit, :update, :destroy]
     end
   end
 
-  def delete
+  def destroy
     @book = Book.find(params[:id])
-    @book.destoy
+    @book.destroy
     flash[:notice] = "Book was successfully destroyed."
     redirect_to books_path
   end
