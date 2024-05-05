@@ -7,7 +7,21 @@
   <tr>
 	  <th>introduction</th>
 	  <th><%= user.introduction %></th>
-  </tr>
+	</tr>
+	<tr>
+	  <th>follows <td><%= link_to "relationships_show_path(user.id)" do %>
+	  <span><%= user.followings.count %></span>
+	  <% end %>
+	  </td>
+	  </th>
+	</tr>
+	<tr>
+    <th>followers <td><%= link_to "relationships_show_path(user.id)" do %>
+    <span><%= user.followers.count %></span>
+    <% end %>
+    </td>
+    </th>
+ </tr>
 </table>
 
 <div class='row'>
