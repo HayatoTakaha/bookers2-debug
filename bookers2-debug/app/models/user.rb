@@ -17,8 +17,9 @@ class User < ApplicationRecord
     end
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
-
+  
   has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   
   has_many :followings, through: :relationships, source: :followed
@@ -26,11 +27,11 @@ class User < ApplicationRecord
   
     # フォローしたときの処理
   def follow(user_id)
-    relationships.create(followed_id: user_id)
+    relationships.create(followed_id: user.id)
   end
   # フォローを外すときの処理
   def unfollow(user_id)
-    relationships.find_by(followed_id: user_id).destroy
+    relationships.find_by(followed_id: user.id).destroy
   end
   # フォローしているか判定
   def following?(user)
