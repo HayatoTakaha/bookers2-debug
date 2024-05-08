@@ -14,9 +14,8 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
-    @book = Book.find(params[:id])
-    @user = @book.user
+  @user = User.find(params[:id])
+  @book = @user.books.find(params[:book_id])
   end
 
   def update
@@ -27,6 +26,8 @@ class UsersController < ApplicationController
     end
   end
 
+
+
   private
 
   def user_params
@@ -34,9 +35,10 @@ class UsersController < ApplicationController
   end
 
   def ensure_correct_user
-    user = User.find(params[:id])
-    unless user.id == current_user.id
+  user = User.find(params[:id])
+  @book = user.books.find_by(id: params[:book_id])
+  unless user.id == current_user.id
     redirect_to user_path(current_user.id)
-    end
+  end
   end
 end
