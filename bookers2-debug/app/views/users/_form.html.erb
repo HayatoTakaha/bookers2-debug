@@ -1,4 +1,4 @@
-<%= form_with model: book, local:false do |f| %>
+<%= form_with model: book, local:true do |f| %>
         <div class="from-group">
         <label><%= f.label :Title %></label>
         <%= f.text_field :title, class:"form-control" %>
