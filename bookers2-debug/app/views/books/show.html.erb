@@ -11,7 +11,6 @@
       <table class='table'>
         <tr id="book_<%= @book.id %>">
         <td>
-       <tr>
         <td>
          <%= link_to user_path(@book.user) do %>
           <%= image_tag @book.user.get_profile_image(100, 100) %><br>
@@ -22,7 +21,7 @@
         <td>
          <%= @book.body %>
         </td>
-        <td class="favorite-btn"><%= render "favorite/favorite-btn", book: @book %></td>
+        <td class="favorite-btn"><%= render "favorites/favorite-btn", book: book %></td>
         <td class="comments-count">コメント数: <%= @book.book_comments.count %></td>
         
         <% if @book.user == current_user %>
@@ -38,7 +37,7 @@
         <table class="book_comments">
          <%= render 'book_comments/index', book: @book %>
         </table>
-        <%= form_with model:[@book,@book_comment] do |f| %>
+        <%= form_with model:[@book,@book_comment], local: false do |f| %>
           <%= f.text_area :comment, size:"90x5" %>
           <%= f.submit '送信'%>
         <% end %>
