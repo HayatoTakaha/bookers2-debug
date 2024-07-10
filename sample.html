@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-sca    <le=1.0">
+    <script src="https://kit.fontawesome.com/96781c3f85.js" crossorigin="anonymous"></script>
+    <title>初めてのHTML</title>
+
+    <link rel="stylesheet" href="style.css"/>
+  </head>
+
+  <body>
+  <!--header-->
+  <!--navigation-->
+  <!--main-visual-->
+  <!-- main-->
+  <!--footer-->
+
+  </body>
+</html>
+
+
+
+
+
+ <% if users.exists? %>
+  <% users.each do |user| %>
+    <table>
+      <thead>
+        <tr>
+          <th>name</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= user.name %></td>
+          <td>フォロー数: <%= user.followings.count %></td>
+          <td>フォロワー数: <%= user.followers.count %></td>
+        </tr>
+      </tbody>
+    </table>
+  <% end %>
+<% else %>
+  <p>ユーザーはいません</p>
+<% end %>

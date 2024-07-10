@@ -1,0 +1,153 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: black;
+}
+a{
+  text-decoration: none;
+}
+body {
+  margin:0;
+}
+
+.bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
+}
+
+.bg3 {
+  animation-duration:5s;
+}
+.content {
+  background-color:rgba(105, 105, 105,.8);
+  border-radius:.25em;
+  box-shadow:0 0 .25em rgba(0,0,0,.25);
+  box-sizing:border-box;
+  left:50%;
+  padding:10vmin;
+  position:fixed;
+  text-align:center;
+  top:50%;
+  transform:translate(-50%, -50%);
+}
+
+h1 {
+  font-family:monospace;
+}
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
+}
+
+header,nav,h2,.main-visual,footer{
+  font-family: Courier;
+}
+header {
+    padding: 0.1em 1em;
+    margin: 2em 0;
+    color: #5989cf;
+    background: #c6e4ff;
+    border-bottom: solid 6px #aac5de;
+    border-radius: 9px;
+    text-align: center;
+}
+header {
+  font-size: 30px;
+  top: 30px;
+  bottom: 10px;
+}
+.blog-heading{
+  padding-left: 410px;
+}
+main{
+  width: 800px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 70px 0 ;
+}
+
+.social i {
+  display: inline-block;
+  margin-left: 20px;
+  font-size: 20px;
+}
+.social {
+  position: absolute; /* headerの左上を基準に絶対位置で指定する */
+  top: 93px; /* headerの左上から22px下側へ移動する */
+  right: 22px; /* headerの右上から22px左側へ移動する */
+}
+.nav-list{
+  text-align: center;
+  margin: 0 auto;
+}
+.nav-list-item{
+  color: #FFCC99;
+  list-style: none;
+  display: inline-block;
+  margin: 0 10px;
+}
+
+@media screen and (max-width: 425px) {
+  header {
+    width: 100%;
+  }
+
+  .nav-list {
+    width: 100%;
+  }
+
+  .nav-list-item {
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+
+  .social {
+    display: none;
+  }
+
+  .main-visual-content {
+    width: 100%;
+  }
+
+  main {
+    width: 100%;
+    display: block;
+  }
+
+  .text {
+    width: 100%;
+    margin: 0;
+  }
+
+  .blog-box {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+
+  .blog-image {
+    width: 100%;
+  }
+
+  .blog-text {
+    width: 49%;
+    padding-top: 5px;
+  }
